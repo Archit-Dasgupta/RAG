@@ -17,37 +17,53 @@
         <div class="stars"></div>
         <div class="stars2"></div>
         <div class="stars3"></div>
-        Hello! I'm an AI chatbot created by Archit Dasgupta. Ask me anything about him!
     </div>
-    <!-- Typing Indicator -->
-    <div id="typing-indicator" class="typing-indicator" style="display: none;">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    </div>
+    <div class="container">
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2>Archit Bot</h2>
+                <button id="new-chat-btn" class="icon-btn" aria-label="New Chat" title="New Chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
 
-    <!-- Suggested Questions -->
-    <div id="suggested-questions" class="suggestions-container">
-        <button class="suggestion-chip">Tell me more about Archit</button>
-        <button class="suggestion-chip">What is Archit's biggest achievement?</button>
-    </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    Hello! I'm an AI chatbot created by Archit Dasgupta. Ask me anything about him!
+                </div>
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="input-area">
-        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
-        <button id="send-btn" aria-label="Send Message">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-        </button>
-    </div>
+            <!-- Suggested Questions -->
+            <div id="suggested-questions" class="suggestions-container">
+                <button class="suggestion-chip">Tell me more about Archit</button>
+                <button class="suggestion-chip">What is Archit's biggest achievement?</button>
+            </div>
 
-    <div class="disclaimer">
-        Warning: This model can make mistakes and is not a true representation of Archit.
-    </div>
-    </main>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                <button id="send-btn" aria-label="Send Message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="disclaimer">
+                Warning: This model can make mistakes and is not a true representation of Archit.
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
