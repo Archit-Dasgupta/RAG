@@ -82,6 +82,90 @@ body {
     opacity: 0.4;
 }
 
+:root {
+    --bg-color: #000000;
+    --chat-bg: #000000;
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-primary: #ffffff;
+    --accent-secondary: #cccccc;
+    --accent-glow: rgba(255, 255, 255, 0.1);
+    --user-msg-bg: #1a1a1a;
+    --bot-msg-bg: #0a0a0a;
+    --font-family: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Background Stars Animation */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.stars,
+.stars2,
+.stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars {
+    background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars-anim 100s linear infinite;
+    opacity: 0.5;
+}
+
+.stars2 {
+    background-image: radial-gradient(3px 3px at 50px 100px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(3px 3px at 100px 40px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(3px 3px at 150px 120px, #ddd, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: stars-anim 150s linear infinite;
+    opacity: 0.4;
+}
+
 @keyframes stars-anim {
     from {
         transform: translateY(0);
@@ -95,7 +179,7 @@ body {
 .container {
     width: 100%;
     max-width: 900px;
-    height: 90vh;
+    height: 90dvh;
     padding: 20px;
     position: relative;
     z-index: 1;
@@ -123,7 +207,7 @@ body {
     padding: 20px 30px;
     border-bottom: 1px solid var(--glass-border);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: rgba(0, 0, 0, 0.5);
     position: relative;
@@ -136,6 +220,12 @@ body {
     font-size: 1.25rem;
     color: var(--text-primary);
     letter-spacing: -0.5px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    pointer-events: none;
 }
 
 .icon-btn {
@@ -152,8 +242,9 @@ body {
     border: 1px solid var(--glass-border);
     cursor: pointer;
     transition: all 0.2s ease;
-    position: absolute;
-    right: 20px;
+    margin-left: auto;
+    position: relative;
+    z-index: 3;
 }
 
 .icon-btn:hover {
@@ -302,7 +393,6 @@ body {
 
 #send-btn svg {
     margin-left: -2px;
-    /* Visual centering adjustment */
 }
 
 /* Typing Indicator */
@@ -388,6 +478,7 @@ body {
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin-top: 12px;
+    padding-bottom: 10px;
     opacity: 0.6;
 }
 
@@ -395,7 +486,7 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 0;
-        height: 100vh;
+        height: 100dvh;
         max-width: 100%;
     }
 
@@ -420,7 +511,6 @@ body {
     .input-area input {
         padding: 12px 16px;
         font-size: 16px;
-        /* Prevents iOS zoom */
     }
 
     #send-btn {
