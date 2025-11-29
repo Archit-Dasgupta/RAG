@@ -1,45 +1,24 @@
 :root {
-    --bg-color: #0f172a;
-    --chat-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-glow: rgba(99, 102, 241, 0.4);
-    --user-msg-bg: linear-gradient(135deg, #6366f1, #8b5cf6);
-    --bot-msg-bg: rgba(51, 65, 85, 0.5);
+    --bg-color: #000000;
+    --chat-bg: #000000;
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-primary: #ffffff;
+    --accent-secondary: #cccccc;
+    --accent-glow: rgba(255, 255, 255, 0.1);
+    --user-msg-bg: #1a1a1a;
+    --bot-msg-bg: #0a0a0a;
     --font-family: 'Inter', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family);
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Background Stars Animation */
-.stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+overflow: hidden;
+pointer-events: none;
 }
 
 .stars,
@@ -69,79 +48,26 @@ body {
     background-image: radial-gradient(3px 3px at 50px 100px, #eee, rgba(0, 0, 0, 0)),
         radial-gradient(3px 3px at 100px 40px, #fff, rgba(0, 0, 0, 0)),
         radial-gradient(3px 3px at 150px 120px, #ddd, rgba(0, 0, 0, 0));
-    background-repeat: repeat;
-    background-size: 300px 300px;
-    animation: stars-anim 150s linear infinite;
-    opacity: 0.4;
-}
-
-@keyframes stars-anim {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-1000px);
-    }
-}
-
-.container {
-    width: 100%;
-    max-width: 900px;
-    height: 90vh;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.chat-area {
-    background: var(--chat-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-.chat-header {
-    padding: 20px 30px;
-    border-bottom: 1px solid var(--glass-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.chat-header h2 {
-    font-weight: 600;
-    font-size: 1.25rem;
-    background: linear-gradient(to right, #fff, #cbd5e1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
     letter-spacing: -0.5px;
 }
 
 .icon-btn {
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
     color: var(--text-secondary);
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 8px;
+    border-radius: 50%;
     box-shadow: none;
-    width: auto;
+    width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid transparent;
+    justify-content: center;
+    border: 1px solid var(--glass-border);
     cursor: pointer;
     transition: all 0.2s ease;
+    position: absolute;
+    right: 20px;
 }
 
 .icon-btn:hover {
@@ -216,25 +142,6 @@ body {
 }
 
 .suggestion-chip:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-}
-
-.input-area {
-    padding: 24px 30px;
-    background: rgba(15, 23, 42, 0.4);
-    border-top: 1px solid var(--glass-border);
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.input-area input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
     padding: 16px 20px;
     border-radius: 16px;
     color: var(--text-primary);
@@ -263,8 +170,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: white;
+    background: var(--text-primary);
+    color: var(--bg-color);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
