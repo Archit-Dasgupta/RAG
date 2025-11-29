@@ -4,42 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#000000">
     <title>Archit Bot</title>
-    <div class="chat-messages" id="chat-messages">
-        <div class="message bot">
-            Hello! I'm an AI chatbot created by Archit Dasgupta. Ask me anything about him!
-        </div>
-        <!-- Typing Indicator -->
-        <div id="typing-indicator" class="typing-indicator" style="display: none;">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <!-- Suggested Questions (Optional) -->
-    <div id="suggested-questions" class="suggestions-container">
-        <!-- <button class="suggestion-chip">Summarize the uploaded documents</button> -->
+<body>
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
     </div>
+    <div class="container">
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2>Archit Bot</h2>
+            </div>
 
-    <div class="input-area">
-        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
-        <button id="send-btn" aria-label="Send Message">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-        </button>
-    </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    Hello! I'm an AI chatbot created by Archit Dasgupta. Ask me anything about him!
+                </div>
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="disclaimer">
-        Warning: This model can make mistakes and is not a true representation of Archit.
-    </div>
-    </main>
+            <!-- Suggested Questions (Optional) -->
+            <div id="suggested-questions" class="suggestions-container">
+                <!-- <button class="suggestion-chip">Summarize the uploaded documents</button> -->
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                <button id="send-btn" aria-label="Send Message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="disclaimer">
+                Warning: This model can make mistakes and is not a true representation of Archit.
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
-    </body>
+</body>
 
 </html>
