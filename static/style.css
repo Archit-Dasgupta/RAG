@@ -1,13 +1,14 @@
 :root {
     --bg-color: #000000;
-    --card-bg: rgba(10, 15, 30, 0.7);
-    --glass-border: rgba(59, 130, 246, 0.2);
+    --card-bg: rgba(10, 15, 30, 0.4);
+    /* More transparent */
+    --glass-border: rgba(59, 130, 246, 0.3);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-primary: #2563eb;
-    --accent-secondary: #3b82f6;
-    --accent-glow: rgba(59, 130, 246, 0.5);
-    --shadow-lg: 0 0 30px rgba(37, 99, 235, 0.2);
+    --accent-primary: #3b82f6;
+    --accent-secondary: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.6);
+    --shadow-lg: 0 0 50px rgba(37, 99, 235, 0.15);
 }
 
 * {
@@ -37,7 +38,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #000000 100%);
 }
 
 .stars,
@@ -101,7 +102,6 @@ body {
 .container {
     width: 100%;
     max-width: 900px;
-    /* Centered and reasonable width */
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -112,15 +112,16 @@ body {
 /* Chat Area */
 .chat-area {
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    /* Reduced blur for better visibility */
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
     position: relative;
     animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -143,15 +144,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .chat-header h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    text-shadow: 0 0 20px var(--accent-primary);
-    letter-spacing: 0.5px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 15px var(--accent-primary), 0 0 30px var(--accent-glow);
+    letter-spacing: 1px;
+    background: linear-gradient(to bottom, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .chat-messages {
@@ -171,22 +175,25 @@ body {
     font-size: 1rem;
     animation: fadeIn 0.4s ease-out;
     position: relative;
+    backdrop-filter: blur(5px);
 }
 
 .message.user {
     align-self: flex-end;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(59, 130, 246, 0.8));
     color: white;
     border-bottom-right-radius: 4px;
     box-shadow: 0 4px 15px var(--accent-glow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .message.bot {
     align-self: flex-start;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--glass-border);
     border-bottom-left-radius: 4px;
     color: var(--text-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .input-area {
@@ -194,12 +201,12 @@ body {
     border-top: 1px solid var(--glass-border);
     display: flex;
     gap: 16px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 input[type="text"] {
     flex: 1;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--glass-border);
     padding: 16px 24px;
     border-radius: 16px;
@@ -211,8 +218,8 @@ input[type="text"] {
 
 input[type="text"]:focus {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 15px var(--accent-glow);
-    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px var(--accent-glow);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 input[type="text"]::placeholder {
@@ -220,7 +227,7 @@ input[type="text"]::placeholder {
 }
 
 button {
-    background: var(--accent-primary);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
     border: none;
     padding: 0 24px;
@@ -230,13 +237,12 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px var(--accent-glow);
+    box-shadow: 0 0 20px var(--accent-glow);
 }
 
 button:hover {
-    background: var(--accent-secondary);
-    transform: scale(1.05);
-    box-shadow: 0 0 25px var(--accent-glow);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 30px var(--accent-glow);
 }
 
 button:active {
@@ -245,7 +251,7 @@ button:active {
 
 /* Typing Indicator */
 .typing-indicator {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     padding: 16px 24px;
     border-radius: 20px;
     border-bottom-left-radius: 4px;
@@ -264,6 +270,7 @@ button:active {
     background: var(--accent-secondary);
     border-radius: 50%;
     animation: bounce 1.4s infinite ease-in-out both;
+    box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .typing-indicator span:nth-child(1) {
@@ -303,7 +310,7 @@ button:active {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -312,7 +319,7 @@ button:active {
 
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -325,7 +332,7 @@ button:active {
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin-top: 12px;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 /* Mobile Responsiveness */
