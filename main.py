@@ -128,11 +128,13 @@ async def chat(request: ChatRequest):
         include_metadata=True
     )
     
-    # Construct context
+    # Construct context and unique sources
     context = ""
+    sources = set()
     for match in results.matches:
         if match.metadata and "text" in match.metadata:
             context += f"\n---\nSource: {match.metadata['filename']}\n{match.metadata['text']}\n"
+            sources.add(match.metadata['filename'])
             
     # Generate response
     system_prompt = f"""You are Archit, a professional and enthusiastic AI assistant. You are a representation of Archit himself, so refer to yourself as "I".
@@ -162,7 +164,10 @@ async def chat(request: ChatRequest):
         ]
     )
     
-    return {"response": completion.choices[0].message.content}
+    return {
+        "response": completion.choices[0].message.content,
+        "sources": list(sources)
+    }
 
 # Serve static files
 app.mount("/", StaticFiles(directory="static", html=True), name="static")

@@ -113,20 +113,42 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-header h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-secondary);
-    padding: 8px;
-    border-radius: 50%;
+    padding: 8px 16px;
+    border-radius: 12px;
     box-shadow: none;
-    width: 40px;
+    width: auto;
     height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .icon-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
-    transform: none;
-    box-shadow: none;
+    border-color: var(--glass-border);
+    transform: translateY(-1px);
 }
 
 .chat-messages {
@@ -163,6 +185,15 @@ body {
     border-bottom-right-radius: 4px;
     align-self: flex-end;
     box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.message-sources {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    opacity: 0.8;
+    color: var(--text-secondary);
 }
 
 .suggestions-container {
@@ -232,6 +263,21 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+#send-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+#send-btn:active {
+    transform: scale(0.95);
 }
 
 #send-btn svg {

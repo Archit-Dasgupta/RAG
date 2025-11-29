@@ -3,10 +3,21 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
 // Chat Handling
-function addMessage(text, sender) {
+function addMessage(text, sender, sources = []) {
     const div = document.createElement('div');
     div.className = `message ${sender}`;
-    div.textContent = text;
+
+    // Convert newlines to line breaks for better formatting
+    const formattedText = text.replace(/\n/g, '<br>');
+    div.innerHTML = formattedText;
+
+    // Add sources if available
+    if (sources && sources.length > 0) {
+        const sourcesDiv = document.createElement('div');
+        sourcesDiv.className = 'message-sources';
+        sourcesDiv.innerHTML = `<small>Sources: ${sources.join(', ')}</small>`;
+        div.appendChild(sourcesDiv);
+    }
 
     // Insert before typing indicator if it exists
     const typingIndicator = document.getElementById('typing-indicator');
@@ -64,7 +75,7 @@ async function sendMessage() {
         if (typingIndicator) typingIndicator.style.display = 'none';
 
         if (response.ok) {
-            addMessage(data.response, 'bot');
+            addMessage(data.response, 'bot', data.sources);
         } else {
             addMessage('Error: ' + data.detail, 'bot');
         }
