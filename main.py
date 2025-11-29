@@ -76,9 +76,9 @@ async def upload_files(files: List[UploadFile]):
         else:
             text = content.decode("utf-8")
         
-        # Simple chunking (can be improved)
-        chunk_size = 1000
-        chunks = [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
+        # Smart Chunking
+        from utils import get_chunks
+        chunks = get_chunks(text, chunk_size=500, overlap=50)
         
         vectors = []
         for i, chunk in enumerate(chunks):
