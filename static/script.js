@@ -89,6 +89,16 @@ if (userInput) {
     });
 }
 
+// New Chat Handling
+const newChatBtn = document.getElementById('new-chat-btn');
+if (newChatBtn) {
+    newChatBtn.addEventListener('click', () => {
+        // Simple way to reset chat: reload the page
+        // Alternatively, we could clear the chatMessages div and reset state
+        location.reload();
+    });
+}
+
 // Suggested Questions
 const suggestedQuestions = document.querySelectorAll('.suggestion-chip');
 suggestedQuestions.forEach(chip => {
